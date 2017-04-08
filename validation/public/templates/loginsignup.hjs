@@ -1,0 +1,94 @@
+
+<div class="row" style="margin-top: 100px;">
+   <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-offset-3 col-md-3">
+         <button type="button" class="btn btn-block btn-primary hvr-fade "  ng-class="{'btn-block': view== 'login'}" ng-click="!(resetforms('login')) "><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp Login</button>
+      </div>
+      <div class="col-md-3">
+         <button type="button" class=" btn btn-block btn-primary hvr-fade " ng-class="{'btn-block': view== 'signup'}" ng-click="resetforms('signup')"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp Register</button>
+      </div>
+      <div class="col-md-12" style="margin-top: 10px;">
+         <div class="col-md-8 col-md-offset-2 panel panel-default" style="margin-top: 20px; border: 3px solid #e6e9ed;padding: 40px; background-color:#F2F3F4;" ng-show="view == 'login'">
+            <form name="loginform" ng-submit="loginForm(loginform.$valid)" novalidate>
+               <h3 style="margin-top: 0px;">LOGIN</h3>
+               <div class="col-xs-12" style="padding: 0px;margin-top: 20px">
+                  <label >Email:</label>
+                  <div class="input-group">
+                     <div class="input-group-addon" style="background-color: white;">
+                        <span class="fa fa-user" style="color:#808080;"></span>
+                     </div>
+                     <input type="text" class="form-control" name="lname" placeholder="Enter your Email" ng-model="login.email" required>
+                  </div>
+                  <span ng-show="loginform.lname.$invalid && submitted" class="small helpblock">Your Email is required</span>
+               </div>
+               <div class="col-xs-12" style="padding: 0px;margin-top: 20px">
+                  <label>Password:</label>
+                  <div class="input-group">
+                     <div class="input-group-addon" style="background-color: white;">
+                        <span class="fa fa-lock" style="color:#808080;"></span>
+                     </div>
+                     <input type="password" class="form-control" name="lpassword" placeholder="Enter password" ng-model="login.password" required>
+
+                  </div>
+                  <span ng-show="loginform.lpassword.$invalid && submitted" class="small helpblock">Password is required</span>
+               </div>
+               <button type="button " class="btn pull-left hvr-back-pulse " style="margin-top: 20px;background: #1F75FE">Login</button>
+            </form>
+         </div>
+         <div class="col-md-8 col-md-offset-2 panel panel-default" style="margin-top: 20px; border: 3px solid #e6e9ed;padding: 40px; background-color: #F2F3F4;" ng-show="view == 'signup'">
+            <h3 style="margin-top: 0px;">REGISTER</h3>
+            <form name="signupform" ng-submit="submitForm(signupform.$valid)" novalidate>
+               <div class="col-xs-12" style="padding: 0px;margin-top: 20px">
+                  <label>Name:</label>
+                  <div class="input-group">
+                     <div class="input-group-addon" style="background-color: white;">
+                        <span class="fa fa-user" style="color:#808080;"></span>
+                     </div>
+                     <input type="text" class="form-control" placeholder="Enter your name" required ng-model="signup.name" name="name">
+                  </div>
+                  <span ng-show="signupform.name.$invalid && submitted" class="small helpblock">Your name is required</span>
+               </div>
+               <div class="col-xs-12" style="padding: 0px;margin-top: 20px">
+                  <label>Email:</label>
+                  <div class="input-group">
+                     <div class="input-group-addon" style="background-color: white;">
+                        <span class="fa fa-envelope" style="color:#808080;"></span>
+                     </div>
+                     <input type="email" class="form-control" placeholder="Enter your email" required ng-model="signup.email" name="email" ng-change="checkemail()">
+                  </div>
+                  <span ng-show="signupform.email.$invalid && submitted" class="small helpblock">Enter a valid email.</span>
+                  <span ng-show="showemailerr" class="small helpblock">Email already exists! Try another.</span>
+               </div>
+               <div class="col-xs-12" style="padding: 0px;margin-top: 20px">
+                  <label>Password:</label>
+                  <div class="input-group">
+                     <div class="input-group-addon" style="background-color: white;">
+                        <span class="fa fa-lock" style="color:#808080;"></span>
+                     </div>
+                     <input type="password" class="form-control" placeholder="Enter password" required ng-model="signup.password" name="password">
+                  </div>
+                  <span ng-show="signupform.password.$invalid && submitted" class="small helpblock">Your password is required</span>
+               </div>
+               <div class="col-xs-12" style="padding: 0px;margin-top: 20px">
+                  <label>Confirm Password:</label>
+                  <div class="input-group">
+                     <div class="input-group-addon" style="background-color: white;">
+                        <span class="fa fa-lock" style="color:#808080;"></span>
+                     </div>
+                     <input type="password" class="form-control" placeholder="Renter password" required ng-model="signup.confirm" name="confirm">
+                  </div>
+                  <span ng-show="signupform.confirm.$invalid && submitted" class="small helpblock">Your confirm password is required</span>
+                  <span ng-show="signupform.confirm.$valid && signup.confirm != signup.password  && submitted" class="small helpblock">password missmatch</span>
+
+
+               <div class="radio col-xs-12" style="padding: 0px;margin-top: 20px">
+                 <label><input type="radio" name="optradio" value="1"  ng-model="signup.role" >Approver</label> &nbsp
+                 <label><input type="radio"  name="optradio" value="0"  ng-model="signup.role">User</label>
+               </div>
+
+               <button type="button " class="btn pull-left hvr-back-pulse " style="margin-top: 20px;background: #1F75FE">Register</button>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>

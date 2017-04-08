@@ -1,0 +1,193 @@
+<link rel="stylesheet" href="/css/newreq.css">
+<div class="container" ng-controller="reqCtrl">
+<div class="row">
+ <div class="col-md-10 col-md-offset-2 panel panel-default" style ="margin-top: 20px; border: 3px solid #e6e9ed;padding: 40px; background-color:#F2F3F4;padding:10px; margin-left:0px;">
+   <div class="form-horizontal">
+       <form name="reqform" method= "post" action=/new_request novalidate>
+       <legend> <h3 style="margin-top: 0px;">NEW REQUEST</h3> </legend>
+          <fieldset>
+
+                 <div class="form-group">
+                  <label  class="col-sm-2 control-label" for="textinput" >Platform:</label>
+                  <div class="col-sm-8">
+                  <div class="input-group ">
+                   <select name="platform"   class=" form-control" >
+
+                      <option value="">Choose platform</option>
+                      <option value="linux">linux</option>
+                      <option value="aix">Aix</option>
+                      <option value="windows">Windows</option>
+                   </select>
+                 </div>
+                 </div>
+                 </div>
+
+          <div class= "form-group">
+         <label  class=" col-sm-2 control-label">Version:</label>
+         <div class="col-sm-8">
+          <input class="form-control" name="version" type="text" placeholder="version"  required >
+
+         </div>
+         </div>
+
+
+
+     <div class= "form-group">
+     <label  class="col-sm-2 control-label" >Type of request:</label>
+     <div class=" col-sm-8">
+      <input name="build_type" value="development"  type="radio"  ng-click="dev_builds()"  > Development
+      <input name="build_type" value="support" type="radio"   ng-click="sup_builds()" >Support
+     </div>
+     </div><!-- formgroup-->
+
+             <div class ="support " ng-if="support"  >
+
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Support Types:</label>&nbsp
+    <div class="col-sm-8" >
+    <input name=req_type value="ifix"  ng-click="ifix_contents()"  type="radio" > ifix
+
+    <input name=req_type value="tfix"  ng-click="tfix_contents()"  type="radio" " >tfix
+    </div>
+    </div>
+
+
+
+
+              <div class=" form-group ifix"  ng-if="ifix_content">
+
+                   <div class="form-group">
+                  <label  class="col-sm-2 control-label">Pmr:</label>
+                    <div class="col-sm-8">
+                     <input class="form-control" name="pmr" type="text" placeholder="Pmr" " required >
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                  <label for="defect" class="col-sm-2 control-label">Defect:</label>
+                  <div class="col-sm-8">
+                  <input class="form-control" name="defect" type="text"  " placeholder="Defect"  required>
+
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                  <label for="deliverables" class="col-sm-2 control-label">Deliverables:</label>
+                  <div class="col-sm-8">
+                     <textarea class="form-control"  name="deliver" required placeholder="Deliverables" ></textarea>
+                  </div>
+                  </div>
+
+                   <div class="form-group">
+                  <label for="customer" class="col-sm-2 control-label">Customer:</label>
+                  <div class="col-sm-8">
+                      <input class="form-control" name="customer" type="text"  " placeholder="Customer"   required>
+                                          </div>
+                  </div>
+
+                  <div class="form-group">
+                  <label for="abstract" class="col-sm-2 control-label">Abstract:</label>
+                  <div class="col-sm-8">
+                   <textarea class="form-control"   name="abstract" type="text"  placeholder="Abstract"  required></textarea>
+                  </div>
+                  </div>
+
+                   <div class="form-group">
+                  <label for="rtcworkplace" class="col-sm-2 control-label">RTC Workspace:</label>
+                  <div class="col-sm-8">
+               <!--   <input class="form-control" name="rtc" type="text" placeholder="Pmr" required > -->
+                    <input class="form-control" name="rtc" type="text"  " placeholder="Rtc"   required>
+                  </div>
+                  </div>
+
+                   <div class="form-group">
+                  <label for="comments" class="col-sm-2 control-label">Comments:</label>
+                  <div class="col-sm-8">
+                     <textarea class="form-control" name="comments" ></textarea>
+                  </div>
+                  </div>
+
+
+                  </div>
+            <!-- ifix selection -->
+
+            <div class="form-group tfix" ng-if="tfix_content">
+                  <div class="form-group">
+                  <label for="pmr" class="col-sm-2 control-label">Pmr:</label>
+                  <div class="col-sm-8">
+                     <input class="form-control" type="text" name="pmr"  placeholder="Pmr" >
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                  <label for="apar" class="col-sm-2 control-label">Apar:</label>
+                  <div class="col-sm-8">
+                     <input class="form-control" type="text" name="Apar"  placeholder="Apar" >
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                  <label for="defect" class="col-sm-2 control-label">Defect:</label>
+                  <div class="col-sm-8">
+                     <input class="form-control" type="text" name="defect"  placeholder="Defect" >
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                  <label for="deliverables" class="col-sm-2 control-label">Deliverables:</label>
+                  <div class="col-sm-8">
+                     <input class="form-control" type="text" name="deliver" placeholder="Deliverables" >
+                  </div>
+                   </div>
+
+                   <div class="form-group">
+                  <label for="customer" class="col-sm-2 control-label">Customer:</label>
+                  <div class="col-sm-8">
+                     <input class="form-control" type="text" name="customer" placeholder="CustomerName" >
+                  </div>
+                   </div>
+
+                   <div class="form-group">
+                  <label for="abstract" class="col-sm-2 control-label">Abstract:</label>
+                  <div class="col-sm-8">
+                      <textarea class="form-control" type="text" name="abstract"   placeholder="Abstract"> Abstract</textarea>
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                  <label for="rtcworkplace" class="col-sm-2 control-label">RTC Workspace:</label>
+                  <div class="col-sm-8">
+                     <input class="form-control" type="text" name="rtc" placeholder="Rtc Workspace"  required >
+                  </div>
+                  </div>
+
+                  <div class="form-group">
+                  <label for="comments" class="col-sm-2 control-label">Comments:</label>
+                  <div class="col-sm-8">
+                      <textarea class="form-control" name="comments"   placeholder="Comments">Comments</textarea>
+                  </div>
+                  </div>
+
+                  </div>
+            <!-- tfix selection -->
+
+
+            <div class="btn-group">
+               <button type="button" class="btn btn-primary">Save</button>
+               <button type="button" class="btn btn-primary" ng-click="reqForm()">Submit</button>
+               <button type="button" class="btn btn-primary">Cancel</button>
+            </div>
+
+             </div>
+             <!-- support show-->
+
+               </form>
+               </div>
+               <!--horizontal-form-->
+
+         </div>
+         <!-- col-lg-10 col close -->
+      </div>
+      <!-- row close -->
+    </div>
+     <!-- container -->

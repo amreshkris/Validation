@@ -1,0 +1,36 @@
+Creating a basic node application
+=================================
+1.installing express after installing node
+Installing express
+->npm install express --save
+
+2.installing express generator
+what is express generator?
+	To create modular structure of folders of our app we use express generator
+->npm install -g express-generator
+
+3.Go to any path you want to create application. To start an application.
+->express appname
+where appname is your application
+ex:
+->express validation
+
+3.Installing other dependencies.
+Go to your current application i.e. 'validation' in current example and type following command.
+->npm install 
+will install all dependencies in package.json
+
+4.starting application.
+->npm start
+
+4.Installing nodemon
+Nodemon restarts the server automatically whenever you save a file that the server uses. 
+->npm install nodemon --save-dev
+
+Note: instead of calling 'node server.js' in cmd we now call 'nodemon start' to listen any changes in server files.
+
+
+
+
+
+
